@@ -113,11 +113,9 @@ PHPCPD">
       <arg path="${sourcedir}" />
     </exec>
   </target>
-  <target name="phpdoc" description="Generate API documentation
-using phpDox">
-    <exec executable="phpdoc">
-      <arg line="-d '${sourcedir}' -t '${builddir}/docs' --
-title='Tempo' " />
+  <target name="phpdoc" description="Generate API documentation using phpDox">
+    <exec executable="phpdox">
+      <arg line="-d '${sourcedir}' -t '${builddir}/docs' --title='Tempo' " />
     </exec>
   </target>
   <target name="phpunit" description="Run unit tests withPHPUnit">
