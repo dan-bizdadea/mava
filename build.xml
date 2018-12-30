@@ -47,37 +47,29 @@ sourcecode files">
       </fileset>
     </apply>
   </target>
-  <target name="phploc" description="Measure project size using
-PHPLOC">
+  <target name="phploc" description="Measure project size using PHPLOC">
     <exec executable="phploc">
       <arg value="--log-csv" />
       <arg value="${builddir}/logs/phploc.csv" />
       <arg path="${sourcedir}" />
     </exec>
   </target>
-  <target name="pdepend" description="Calculate software metrics
-using PHP_Depend">
+  <target name="pdepend" description="Calculate software metricsusing PHP_Depend">
     <exec executable="pdepend">
       <arg value="--jdepend-xml=${builddir}/logs/jdepend.xml" />
-      <arg value="--jdepend-chart=${builddir}/pdepend/dependencies.
-svg" />
-      <arg value="--overview-pyramid=${builddir}/pdepend/overview-
-pyramid.svg" />
+      <arg value="--jdepend-chart=${builddir}/pdepend/dependencies.svg" />
+      <arg value="--overview-pyramid=${builddir}/pdepend/overview-pyramid.svg" />
       <arg path="${sourcedir}" />
     </exec>
   </target>
-  <target name="phpmd" description="Perform project mess detection
-using PHPMD and print human readable output. Intended for
-usage on the command line before committing.">
+  <target name="phpmd" description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
     <exec executable="phpmd">
       <arg path="${basedir}/src" />
       <arg value="text" />
       <arg value="${workspace}/app/phpmd.xml" />
     </exec>
   </target>
-  <target name="phpmd-ci" description="Perform project mess
-detection using PHPMD creating a log file for the continuous
-integration server">
+  <target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
     <exec executable="phpmd">
       <arg path="${sourcedir}" />
       <arg value="xml" />
@@ -86,18 +78,13 @@ integration server">
       <arg value="${builddir}/logs/pmd.xml" />
     </exec>
   </target>
-  <target name="phpcs" description="Find coding standard
-violations using PHP_CodeSniffer and print human readable
-output. Intended for usage on the command line before
-committing.">
+  <target name="phpcs" description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
     <exec executable="phpcs">
       <arg value="--standard=Symfony2" />
       <arg path="${sourcedir}" />
     </exec>
   </target>
-  <target name="phpcs-ci" description="Find coding standard
-violations using PHP_CodeSniffer creating a log file for the
-continuous integration server">
+  <target name="phpcs-ci" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
     <exec executable="phpcs" output="/dev/null">
       <arg value="--report=checkstyle" />
       <arg value="--report-file=${builddir}/logs/checkstyle.xml" />
@@ -105,8 +92,7 @@ continuous integration server">
       <arg path="${sourcedir}" />
     </exec>
   </target>
-  <target name="phpcpd" description="Find duplicate code using
-PHPCPD">
+  <target name="phpcpd" description="Find duplicate code using PHPCPD">
     <exec executable="phpcpd">
       <arg value="--log-pmd" />
       <arg value="${builddir}/logs/pmd-cpd.xml" />
@@ -115,14 +101,13 @@ PHPCPD">
   </target>
   <target name="phpdoc" description="Generate API documentationusing phpDox">
     <exec executable="phpdoc">
-      <arg line="-d '${sourcedir}' -t '${builddir}/docs' --
-title='Tempo' " />
+      <arg line="-d '${sourcedir}' -t '${builddir}/docs' --title='Tempo' " />
     </exec>
   </target>
   <target name="phpunit" description="Run unit tests withPHPUnit">
     <exec executable="phpunit" failonerror="true">
       <arg value="-c" />
-      <arg path="${basedir}/app/phpunit.xml" />
+      <arg path="${basedir}/phpunit.xml" />
     </exec>
   </target>
   <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
