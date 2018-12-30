@@ -3,7 +3,7 @@
   <property name="workspace" value="${basedir}" />
   <property name="sourcedir" value="${basedir}/src" />
   <property name="builddir" value="${workspace}/app/build" />
-  <target name="build" depends="prepare,vendors,parameters,lint,phploc,pdepend, phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
+  <target name="build" depends="prepare,parameters,lint,phploc,pdepend, phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
   <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
   <target name="tools-parallel" description="Run tools in parallel">
     <parallel threadCount="2">
