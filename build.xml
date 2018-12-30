@@ -3,7 +3,7 @@
   <property name="workspace" value="${basedir}" />
   <property name="sourcedir" value="${basedir}/src" />
   <property name="builddir" value="${workspace}/app/build" />
-  <target name="build" depends="prepare,parameters,lint,phploc,pdepend, phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
+  <target name="build" depends="prepare,vendors,parameters,lint,phploc,pdepend, phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
   <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
   <target name="tools-parallel" description="Run tools in parallel">
     <parallel threadCount="2">
@@ -25,16 +25,14 @@
     <delete dir="${builddir}/pdepend"/>
     <delete dir="${builddir}/docs/*"/>
   </target>
-  <target name="prepare" depends="clean" description="Prepare for
-build">
+  <target name="prepare" depends="clean" description="Prepare for build">
     <mkdir dir="${builddir}/api"/>
     <mkdir dir="${builddir}/code-browser"/>
     <mkdir dir="${builddir}/coverage"/>
     <mkdir dir="${builddir}/logs"/>
     <mkdir dir="${builddir}/pdepend"/>
   </target>
-  <target name="lint" description="Perform syntax check of
-sourcecode files">
+  <target name="lint" description="Perform syntax check of sourcecode files">
     <apply executable="php" failonerror="true">
       <arg value="-l" />
       <fileset dir="${sourcedir}">
@@ -118,6 +116,11 @@ sourcecode files">
       <arg path="${sourcedir}" />
       <arg value="--output" />
       <arg path="${builddir}/code-browser" />
+    </exec>
+  </target>
+  <target name="vendors" description="Update vendors">
+    <exec executable="composer" failonerror="true">
+      <arg value="update" />
     </exec>
   </target>
   <target name="parameters" description="Copy parameters">
