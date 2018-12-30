@@ -106,6 +106,15 @@
     <exec executable="phpunit" failonerror="true">
       <arg value="-c" />
       <arg path="${basedir}/phpunit.xml" />
+      <arg value="--coverage-html" />
+      <arg value="${builddir}/coverage" />
+      <arg value="--coverage-clover" />
+      <arg value="${builddir}/logs/clover.xml" />
+      <arg value="--coverage-crap4j" />
+      <arg value="${builddir}/logs/crap4j.xml" />
+      <arg value="--log-junit" />
+      <arg value="${builddir}/logs/junit.xml" />
+
     </exec>
   </target>
   <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
