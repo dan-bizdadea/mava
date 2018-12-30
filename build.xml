@@ -137,11 +137,6 @@ PHP_CodeBrowser">
       <arg path="${builddir}/code-browser" />
     </exec>
   </target>
-  <target name="vendors" description="Update vendors">
-    <exec executable="composer" failonerror="true">
-      <arg value="update" />
-    </exec>
-  </target>
   <target name="parameters" description="Copy parameters">
     <exec executable="cp" failonerror="true">
       <arg path="app/config/parameters.yml.dist" />
