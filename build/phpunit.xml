@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="${basedir}/../app/autoload.php"
+<phpunit bootstrap="../app/autoload.php"
          backupGlobals="false"
          backupStaticAttributes="false"
          strict="true"
@@ -8,28 +8,28 @@
        
   <testsuites>
     <testsuite name="mava">
-      <directory>${basedir}/../tests/</directory>
+      <directory>../tests/</directory>
     </testsuite>
   </testsuites>
 
   <php>
-    <server name="KERNEL_DIR" value="${basedir}/../app/" />
+    <server name="KERNEL_DIR" value="../app/" />
   </php>
 
   <logging>
-    <log type="coverage-html" target="${basedir}/coverage"/>
-    <log type="coverage-clover" target="${basedir}/logs/clover.xml"/>
-    <log type="coverage-crap4j" target="${basedir}/logs/crap4j.xml"/>
-    <log type="junit" target="${basedir}/logs/junit.xml" logIncompleteSkipped="false"/>
+    <log type="coverage-html" target="coverage"/>
+    <log type="coverage-clover" target="logs/clover.xml"/>
+    <log type="coverage-crap4j" target="logs/crap4j.xml"/>
+    <log type="junit" target="logs/junit.xml" logIncompleteSkipped="false"/>
   </logging>
 
   <filter>
     <whitelist>
-      <directory>${basedir}/../src</directory>
+      <directory>../src</directory>
       <exclude>
-        <directory>${basedir}/../src/*Bundle/Resources</directory>
-        <directory>${basedir}/../src/*/*Bundle/Resources</directory>
-        <directory>${basedir}../src/*/Bundle/*Bundle/Resources</directory>
+        <directory>../src/*Bundle/Resources</directory>
+        <directory>../src/*/*Bundle/Resources</directory>
+        <directory>../src/*/Bundle/*Bundle/Resources</directory>
       </exclude>
     </whitelist>
   </filter>
