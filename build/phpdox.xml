@@ -1,5 +1,5 @@
 <phpdox xmlns="http://xml.phpdox.net/config">
-    <project name="mava" source="${basedir}/src" workdir="${basedir}/build/phpdox">
+    <project name="mava" source="${basedir}/../src" workdir="${basedir}/phpdox">
         <collector publiconly="false">
             <include mask="*.php" />
         </collector>
