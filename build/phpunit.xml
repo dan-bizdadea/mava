@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="tests/bootstrap.php"
+<phpunit bootstrap="${basedir}../app/autoload.php"
          backupGlobals="false"
          backupStaticAttributes="false"
          strict="true"
+         colors="true"
          verbose="true">
        
   <testsuites>
     <testsuite name="mava">
-      <directory suffix="Test.php">${basedir}/../tests/</directory>
+      <directory>${basedir}/../tests/</directory>
     </testsuite>
   </testsuites>
+
+  <php>
+    <server name="KERNEL_DIR" value="${basedir}/../app/" />
+  </php
 
   <logging>
     <log type="coverage-html" target="${basedir}/coverage"/>
@@ -19,10 +24,12 @@
   </logging>
 
   <filter>
-    <whitelist addUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">${basedir}/src</directory>
+    <whitelist>
+      <directory>src</directory>
       <exclude>
-        <file>${basedir}/src/bootstrap.php</file>
+        <directory>src/*Bundle/Resources</directory>
+        <directory>src/*/*Bundle/Resources</directory>
+        <directory>src/*/Bundle/*Bundle/Resources</directory>
       </exclude>
     </whitelist>
   </filter>
